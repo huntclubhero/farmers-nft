@@ -1,0 +1,77 @@
+{
+  "_doc": "Canonical trait taxonomy for the Hat Pets drop. All generative + contract + metadata work reads from this file.",
+  "totalSupply": 200,
+  "archetypes": [
+    { "name": "Farmer", "count": 60, "kind": "character", "description": "Tends the land. Holds or wears the produce they grow." },
+    { "name": "Trader", "count": 60, "kind": "character", "description": "Moves produce between markets. Holds scales, sacks, or coins alongside the produce." },
+    { "name": "Hacker", "count": 40, "kind": "character", "description": "Optimizes the supply chain. Hooded, terminal-adjacent, glitchy aura on rare variants." },
+    { "name": "Fruit",  "count": 20, "kind": "sentient_produce", "description": "Sentient anthropomorphic fruit. The pet IS the fruit, not a character holding it." },
+    { "name": "Veg",    "count": 20, "kind": "sentient_produce", "description": "Sentient anthropomorphic vegetable. The pet IS the vegetable." }
+  ],
+  "produce": [
+    { "name": "Potato",          "kind": "veg",   "tier": "staple" },
+    { "name": "Corn",            "kind": "veg",   "tier": "staple" },
+    { "name": "Wheat",           "kind": "veg",   "tier": "staple" },
+    { "name": "Rice",            "kind": "veg",   "tier": "staple" },
+    { "name": "Carrot",          "kind": "veg",   "tier": "staple" },
+    { "name": "Onion",           "kind": "veg",   "tier": "staple" },
+    { "name": "Cabbage",         "kind": "veg",   "tier": "staple" },
+    { "name": "Lettuce",         "kind": "veg",   "tier": "staple" },
+    { "name": "Tomato",          "kind": "fruit", "tier": "garden" },
+    { "name": "Cucumber",        "kind": "veg",   "tier": "garden" },
+    { "name": "Strawberry",      "kind": "fruit", "tier": "garden" },
+    { "name": "Apple",           "kind": "fruit", "tier": "garden" },
+    { "name": "Watermelon",      "kind": "fruit", "tier": "garden" },
+    { "name": "Pumpkin",         "kind": "fruit", "tier": "garden" },
+    { "name": "Eggplant",        "kind": "fruit", "tier": "garden" },
+    { "name": "Bell Pepper",     "kind": "fruit", "tier": "garden" },
+    { "name": "Blueberry",       "kind": "fruit", "tier": "garden" },
+    { "name": "Saffron",         "kind": "veg",   "tier": "specialty" },
+    { "name": "Vanilla",         "kind": "fruit", "tier": "specialty" },
+    { "name": "Wasabi",          "kind": "veg",   "tier": "specialty" },
+    { "name": "Dragonfruit",     "kind": "fruit", "tier": "specialty" },
+    { "name": "Heirloom Tomato", "kind": "fruit", "tier": "specialty" },
+    { "name": "Blue Corn",       "kind": "veg",   "tier": "specialty" },
+    { "name": "Ghost Pepper",    "kind": "fruit", "tier": "specialty" }
+  ],
+  "produceTierWeights": {
+    "staple": 60,
+    "garden": 30,
+    "specialty": 10
+  },
+  "_note_on_produce_assignment": "For Farmer/Trader/Hacker, produce is what they carry. For Fruit archetype, produce must be kind=fruit (sentient form). For Veg archetype, produce must be kind=veg. Tier weights still apply within each archetype.",
+  "hats": [
+    { "name": "None",     "weight": 25 },
+    { "name": "Straw",    "weight": 20, "archetype_pref": ["Farmer"] },
+    { "name": "Beanie",   "weight": 15 },
+    { "name": "Cowboy",   "weight": 10, "archetype_pref": ["Trader", "Farmer"] },
+    { "name": "Hooded",   "weight": 10, "archetype_pref": ["Hacker"] },
+    { "name": "Bandana",  "weight": 10 },
+    { "name": "Wizard",   "weight": 7 },
+    { "name": "Crown",    "weight": 3 }
+  ],
+  "backgrounds": [
+    { "name": "Field",    "weight": 25, "archetype_pref": ["Farmer", "Veg"] },
+    { "name": "Market",   "weight": 25, "archetype_pref": ["Trader", "Fruit"] },
+    { "name": "Terminal", "weight": 15, "archetype_pref": ["Hacker"] },
+    { "name": "Dawn",     "weight": 12 },
+    { "name": "Dusk",     "weight": 10 },
+    { "name": "Starry",   "weight": 8 },
+    { "name": "Golden",   "weight": 4 },
+    { "name": "Void",     "weight": 1 }
+  ],
+  "auras": [
+    { "name": "None",      "weight": 70 },
+    { "name": "Shimmer",   "weight": 20 },
+    { "name": "Glitch",    "weight": 8,  "archetype_pref": ["Hacker"] },
+    { "name": "Legendary", "weight": 2 }
+  ],
+  "rarityScoreFormula": "score = archetypeRarity + produceTierRarity + auraRarity + hatRarity + backgroundRarity (lower archetype count = higher rarity; specialty produce > garden > staple; Legendary aura is the top flex).",
+  "openseaAttributesShape": [
+    { "trait_type": "Archetype",  "value": "<archetype name>" },
+    { "trait_type": "Produce",    "value": "<produce name>" },
+    { "trait_type": "Hat",        "value": "<hat name>" },
+    { "trait_type": "Background", "value": "<bg name>" },
+    { "trait_type": "Aura",       "value": "<aura name>" }
+  ]
+}

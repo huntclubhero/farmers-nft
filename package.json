@@ -1,0 +1,28 @@
+{
+  "name": "hat-nft",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "gen:sprites": "python scripts/generate-sprites.py",
+    "gen:tokens": "node scripts/generate-tokens.js",
+    "deploy:testnet": "hardhat run scripts/deploy.js --network baseSepolia",
+    "deploy:base": "hardhat run scripts/deploy.js --network base",
+    "upload:testnet": "hardhat run scripts/upload-art.js --network baseSepolia",
+    "upload:base": "hardhat run scripts/upload-art.js --network base",
+    "upgrade:base": "hardhat run scripts/upgrade.js --network base"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/hardhat-upgrades": "^3.5.0",
+    "hardhat": "^2.22.0",
+    "dotenv": "^16.4.5"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.2",
+    "@openzeppelin/contracts-upgradeable": "^5.0.2",
+    "solady": "^0.0.243",
+    "ethers": "^6.12.0"
+  }
+}
